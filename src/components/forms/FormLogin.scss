@@ -1,0 +1,8 @@
+.form-login{
+    background-color: rgb(114, 42, 86);
+    color: white;
+    width: 100%;
+    @media screen and (min-width:768px) {
+        width: 40%;
+    }
+}
