@@ -3,7 +3,7 @@ import "./FormButton.scss"
 
 const FormButton = (props) => {
   return (
-    <input type="submit" value={props.text} className="btn form-button mt-3 m" />
+    <input type="submit" value={props.text} className="btn form-button mt-3" />
   )
 }
 

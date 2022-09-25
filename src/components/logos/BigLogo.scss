@@ -1,7 +1,14 @@
 .big-logo{
-    width: 100%;
-    margin: 35px auto;
+    width: 80%;
+    height: 20%;
+    margin: 30px auto;
     @media screen and (min-width:768px) {
         width: 50%;
+        margin: 20px auto;
+        height: 25%;
+    }
+    @media screen and (max-width:425px) {
+        width: 80%;
+        height: 15%;
     }
 }

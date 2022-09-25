@@ -1,7 +1,10 @@
-import React from "react";
+import {useState} from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import "./FormLogin.scss"
+import swal from "sweetalert";
+import "./FormLogin.scss";
 
 import FormInput from "./formFields/FormInput";
 import FormLabel from "./formLabels/FormLabel";
@@ -10,13 +13,33 @@ import FormButton from "./formButtons/FormButton";
 import Title from "../titles/Title";
 
 const FormLogin = () => {
+  const navigate = useNavigate();
+
+  useState(()=>{
+    localStorage.clear()
+  },[])
+
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
     onSubmit: (formData) => {
-      console.log(formData);
+      const email = formData.email;
+      const password = formData.password;
+      axios.post("http://challenge-react.alkemy.org", {email,password})
+        .then((res) => {
+          localStorage.setItem("token", res.data.token);
+          navigate("/home");
+        })
+        .catch((error) => {
+          swal({
+            title: "Oh no :C",
+            text: "Invalid credentials, try again",
+            icon: "error",
+            button: "Aww yiss!",
+          });
+        });
     },
     validationSchema: Yup.object({
       email: Yup.string()
@@ -29,7 +52,7 @@ const FormLogin = () => {
   return (
     <form
       onSubmit={formik.handleSubmit}
-      className="form-login position-absolute top-50 start-50 translate-middle p-4 rounded shadow-lg border"
+      className="form-login p-4 rounded shadow-lg border"
     >
       <Title text="Login" />
       <div className="mt-2">
@@ -39,6 +62,8 @@ const FormLogin = () => {
           placeholder="Email here"
           name="email"
           formik={formik}
+          danger={formik.errors.email}
+          touched={formik.touched.email}
         />
         {formik.errors.email && formik.touched.email && (
           <FormAlert text={formik.errors.email} />
@@ -51,6 +76,8 @@ const FormLogin = () => {
           placeholder="Password here"
           name="password"
           formik={formik}
+          danger={formik.errors.password}
+          touched={formik.touched.password}
         />
         {formik.errors.password && formik.touched.password && (
           <FormAlert text={formik.errors.password} />

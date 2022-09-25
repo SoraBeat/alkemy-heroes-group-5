@@ -1,5 +1,10 @@
 .form-button{
-    background-color: rgb(61, 0, 48);
+    background-color: #8064A2;
+    border-color: #8064A2;
     color: white;
     font-weight: bold;
+}
+.form-button:hover{
+    background-color: #584175 !important;
+    border-color: #584175 !important;
 }

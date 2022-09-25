@@ -6,7 +6,7 @@ import BigLogo from "../components/logos/BigLogo";
 
 const Login = () => {
   return (
-    <div className="background-login">
+    <div className="background-login justify-content-center align-items-center">
       <BigLogo />
       <FormLogin />
     </div>

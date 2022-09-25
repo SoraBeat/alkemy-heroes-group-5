@@ -1,9 +1,10 @@
 import React from 'react'
+import "./FormAlert.scss"
 
 const FormAlert = (props) => {
   return (
-    <div className={props.text?"border-top border-2 border-danger mx-auto":""}>
-        <p className='text-danger fw-bold'>{props.text}</p>
+    <div>
+        <p className='alert fw-bold'>{props.text}</p>
     </div>
   )
 }
