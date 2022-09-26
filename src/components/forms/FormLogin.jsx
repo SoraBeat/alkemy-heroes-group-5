@@ -10,7 +10,7 @@ import FormInput from "./formFields/FormInput";
 import FormLabel from "./formLabels/FormLabel";
 import FormAlert from "./formsAlerts/FormAlert";
 import FormButton from "./formButtons/FormButton";
-import Title from "../titles/Title";
+import BigLogo from "../logos/BigLogo"
 
 const FormLogin = () => {
   const navigate = useNavigate();
@@ -52,9 +52,9 @@ const FormLogin = () => {
   return (
     <form
       onSubmit={formik.handleSubmit}
-      className="form-login p-4 rounded shadow-lg border"
+      className="form-login p-4 rounded shadow-lg"
     >
-      <Title text="Login" />
+      <BigLogo />
       <div className="mt-2">
         <FormLabel htmlFor="email" text="Email" />
         <FormInput
