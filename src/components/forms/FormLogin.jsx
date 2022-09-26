@@ -1,45 +1,45 @@
-import {useState} from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import swal from "sweetalert";
+import { loginApi } from "../../api/loginApi";
 import "./FormLogin.scss";
 
 import FormInput from "./formFields/FormInput";
 import FormLabel from "./formLabels/FormLabel";
 import FormAlert from "./formsAlerts/FormAlert";
 import FormButton from "./formButtons/FormButton";
-import BigLogo from "../logos/BigLogo"
+import BigLogo from "../logos/BigLogo";
 
 const FormLogin = () => {
   const navigate = useNavigate();
 
-  useState(()=>{
-    localStorage.clear()
-  },[])
+  useState(() => {
+    localStorage.clear();
+  }, []);
 
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
-    onSubmit: (formData) => {
+    onSubmit: async(formData) => {
       const email = formData.email;
       const password = formData.password;
-      axios.post("http://challenge-react.alkemy.org", {email,password})
-        .then((res) => {
-          localStorage.setItem("token", res.data.token);
-          navigate("/home");
-        })
-        .catch((error) => {
-          swal({
-            title: "Oh no :C",
-            text: "Invalid credentials, try again",
-            icon: "error",
-            button: "Aww yiss!",
-          });
+      
+      try{
+        const devolucion = await loginApi(email, password)
+        localStorage.setItem("token",devolucion.data.token)
+        navigate("/home");
+      } catch(error) {
+        swal({
+          title: "Oh no :C",
+          text: "Invalid credentials, try again",
+          icon: "error",
+          button: "Aww yiss!",
         });
+      }
     },
     validationSchema: Yup.object({
       email: Yup.string()
@@ -54,7 +54,7 @@ const FormLogin = () => {
       onSubmit={formik.handleSubmit}
       className="form-login p-4 rounded shadow-lg"
     >
-      <BigLogo />
+      <BigLogo margin="0 auto"/>
       <div className="mt-2">
         <FormLabel htmlFor="email" text="Email" />
         <FormInput
