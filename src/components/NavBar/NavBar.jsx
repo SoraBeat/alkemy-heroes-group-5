@@ -14,7 +14,7 @@ const NavBar = () => {
     <div className="navbar navbar-expand-lg px-3 pt-4">
       <div className="container-fluid">
         <BigLogo className="navbar-brand" height="auto" width="10rem" />
-        <Button width="5rem" height="3rem" doSomething={logout} text="Logout" />
+        <Button width="5rem" height="3rem" doSomething={logout} text="Logout" className="button-primary"/>
       </div>
     </div>
   );

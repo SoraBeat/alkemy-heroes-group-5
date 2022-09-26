@@ -5,8 +5,8 @@ const Button = (props) => {
   return (
     <button
       onClick={props.doSomething}
-      className="button rounded"
-      style={{ width: props.width, height: props.height }}
+      className={`button rounded ${props.className}`}
+      style={{ width: props.width, height: props.height, margin:props.margin }}
     >
       {props.text}
     </button>

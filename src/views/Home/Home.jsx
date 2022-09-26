@@ -2,7 +2,9 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.scss";
 
+import AnimatedFrame from "../../components/AnimatedFrame/AnimatedFrame";
 import NavBar from "../../components/NavBar/NavBar";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -16,9 +18,12 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home-container">
-      <NavBar />
-    </div>
+    <AnimatedFrame>
+      <div className="home-container">
+        <NavBar />
+        <SearchBar />
+      </div>
+    </AnimatedFrame>
   );
 };
 

@@ -1,0 +1,7 @@
+.container-searchbar{
+    width: 80%;
+    margin: 0 auto;
+    @media screen and (min-width:768px) {
+        width: 50%;
+    }
+}
