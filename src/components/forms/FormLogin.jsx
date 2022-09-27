@@ -29,8 +29,8 @@ const FormLogin = () => {
       const password = formData.password;
       
       try{
-        const devolucion = await loginApi(email, password)
-        localStorage.setItem("token",devolucion.data.token)
+        const response = await loginApi(email, password)
+        localStorage.setItem("token",response.data.token)
         navigate("/home");
       } catch(error) {
         swal({

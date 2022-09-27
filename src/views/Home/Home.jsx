@@ -1,12 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, createContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.scss";
 
 import AnimatedFrame from "../../components/AnimatedFrame/AnimatedFrame";
 import NavBar from "../../components/NavBar/NavBar";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import HoneycombPanel from "../../components/HoneycombPanel/HoneycombPanel";
+
+export const apiContext = createContext();
 
 const Home = () => {
+  const [apiCharacters, setApiCharacters] = useState([]);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,7 +26,10 @@ const Home = () => {
     <AnimatedFrame>
       <div className="home-container">
         <NavBar />
-        <SearchBar />
+        <apiContext.Provider value={{ apiCharacters, setApiCharacters }}>
+          <SearchBar />
+          <HoneycombPanel />
+        </apiContext.Provider>
       </div>
     </AnimatedFrame>
   );
