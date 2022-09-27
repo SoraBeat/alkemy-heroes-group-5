@@ -56,8 +56,8 @@ const SearchBar = () => {
               touched={formik.touched.input}
             />
           </div>
-          <div className="w-25">
-            <FormButton text="Search" />
+          <div className="w-25 ms-3">
+            <FormButton text="Search" color="button-secondary"/>
           </div>
         </div>
       </form>

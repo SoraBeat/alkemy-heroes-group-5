@@ -8,7 +8,7 @@ const HoneycombPanel = () => {
   const { apiCharacters } = useContext(apiContext);
 
   return (
-    <div className="w-75 h-50 mx-auto container-honeycomb">
+    <div className="w-75 h-50 mt-4 rounded mx-auto container-honeycomb shadow-lg">
       <ResponsiveHoneycomb
         defaultWidth={1024}
         size={65}
