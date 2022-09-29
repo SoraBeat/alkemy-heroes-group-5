@@ -1,18 +1,35 @@
-import React from 'react'
-import "./IndividualPanel.scss"
-import BackupImage from "../../../assets/images/backup-image.png"
+import { useRef, useEffect } from "react";
+import "./IndividualPanel.scss";
+import BackupImage from "../../../assets/images/backup-image.png";
+import { FaEye, FaPlus } from "react-icons/fa";
 
 const IndividualPanel = (props) => {
+  const container = useRef();
+  const overlay = useRef();
+  useEffect(() => {
+    container.current.style.backgroundImage =
+      "url(" + props.item.image.url + "),url(" + BackupImage + ")";
+    if (props.item.biography.alignment === "good") {
+      overlay.current.style.backgroundColor = "#238a1ad7";
+    } else {
+      overlay.current.style.backgroundColor = "#bb2424c4";
+    }
+  }, []);
   return (
     <>
-        <div style={{backgroundImage:"url("+props.item.image.url+"),url("+BackupImage+")"}} className="image-individual-panel">
-            <p className='text-individual-panel'>{props.item.name}</p>
-        </div>
-        <div className='overlay' style={{backgroundColor:props.item.biography.alignment==="good"?"#238a1ad7":"#bb2424c4"}}>
-            
-        </div>
+      <div ref={container} className="image-individual-panel">
+        <p className="text-individual-panel">{props.item.name}</p>
+      </div>
+      <div className="overlay" ref={overlay}>
+        <button onClick={() => props.handleShow(props.item)}>
+          <FaEye color="white" size="40px" />
+        </button>
+        <button>
+          <FaPlus color="white" size="40px" />
+        </button>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default IndividualPanel
+export default IndividualPanel;

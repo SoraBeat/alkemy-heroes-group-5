@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.scss";
-
+import "./assets/fonts/starFont.otf";
 import Login from "./views/Login/Login";
 import Home from "./views/Home/Home";
 import PageNotFound from "./views/PageNotFound/PageNotFound";

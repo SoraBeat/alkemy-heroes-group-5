@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import swal from "sweetalert";
-import { getCharactersApi } from "../../api/getCharactersApi";
+import { getCharactersApi } from "../../services/getCharactersApi";
 import { apiContext } from "../../views/Home/Home";
 
 import "./SearchBar.scss";
@@ -12,13 +12,14 @@ import FormInput from "../forms/formFields/FormInput";
 import FormButton from "../forms/formButtons/FormButton";
 
 const SearchBar = () => {
-  const { setApiCharacters } = useContext(apiContext);
+  const { setApiCharacters,setIsLoading } = useContext(apiContext);
 
   const formik = useFormik({
     initialValues: {
       input: "",
     },
     onSubmit: async (formData) => {
+      setIsLoading(true);
       const input = formData.input;
 
       try {
@@ -35,6 +36,7 @@ const SearchBar = () => {
           button: "Aww yiss!",
         });
       }
+      setIsLoading(false);
     },
     validationSchema: Yup.object({
       input: Yup.string().required("This field is required"),

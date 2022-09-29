@@ -11,6 +11,7 @@ export const apiContext = createContext();
 
 const Home = () => {
   const [apiCharacters, setApiCharacters] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -25,8 +26,8 @@ const Home = () => {
   return (
     <AnimatedFrame>
       <div className="home-container">
-        <NavBar />
-        <apiContext.Provider value={{ apiCharacters, setApiCharacters }}>
+        <NavBar/>
+        <apiContext.Provider value={{ apiCharacters, setApiCharacters,isLoading,setIsLoading}}>
           <SearchBar />
           <HoneycombPanel />
         </apiContext.Provider>

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import swal from "sweetalert";
-import { loginApi } from "../../api/loginApi";
+import { loginApi } from "../../services/loginApi";
 import "./FormLogin.scss";
 
 import FormInput from "./formFields/FormInput";
