@@ -24,7 +24,7 @@ const IndividualPanel = (props) => {
         <button onClick={() => props.handleShow(props.item)}>
           <FaEye color="white" size="40px" />
         </button>
-        <button>
+        <button onClick={() => props.handleAdd(props.item)}>
           <FaPlus color="white" size="40px" />
         </button>
       </div>
