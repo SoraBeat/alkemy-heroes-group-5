@@ -1,37 +1,51 @@
-.image-individual-panel{
-    background-size: cover,cover;
-    background-position: center,center;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.conainer-individual-trap {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+  margin: 10px -20px;
 }
-.text-individual-panel{
-    color: white;
-    font-weight: 700;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+.conainer-individual-traptop {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  clip-path: polygon(0 0, 100% 0, 82% 100%, 20% 100%);
+}
+.image-individual-panel {
+  background-size: cover, cover;
+  background-position: center, center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.text-individual-panel {
+  color: white;
+  font-weight: 700;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    transition: .5s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    button{
-      background-color: initial;
-      border: none;
-    }
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 150px;
+  height: 150px;
+  opacity: 0;
+  transition: 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  button {
+    background-color: initial;
+    border: none;
   }
-  .overlay:hover{
-    opacity: 1;
-  }
+}
+.overlay:hover,
+.image-individual-panel:hover,
+.conainer-individual:hover {
+  opacity: 1;
+}

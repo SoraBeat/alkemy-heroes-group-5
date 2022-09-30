@@ -16,7 +16,7 @@ const IndividualPanel = (props) => {
     }
   }, []);
   return (
-    <>
+    <div className={props.index%2!==0?"conainer-individual-trap":"conainer-individual-traptop"}>
       <div ref={container} className="image-individual-panel">
         <p className="text-individual-panel">{props.item.name}</p>
       </div>
@@ -28,7 +28,7 @@ const IndividualPanel = (props) => {
           <FaPlus color="white" size="40px" />
         </button>
       </div>
-    </>
+    </div>
   );
 };
 

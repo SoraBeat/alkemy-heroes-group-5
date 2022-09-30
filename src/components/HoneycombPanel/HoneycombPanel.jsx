@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { ResponsiveHoneycomb, Hexagon } from "react-honeycomb";
+import React, { useContext, useState,useRef } from "react";
+
 import { apiContext } from "../../views/Home/Home";
 import swal from "sweetalert";
 
@@ -9,11 +9,11 @@ import IndividualPanel from "./IndividualPanel/IndividualPanel";
 import LoadingSpinner from "../LoadingScreen/LoadingSpinner/LoadingSpinner";
 import Modal from "../Modal/Modal";
 
-
 const HoneycombPanel = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedCharacter, setSelectedCharacter] = useState(null);
-  const { apiCharacters, isLoading,selectedGroup,setSelectedGroup } = useContext(apiContext);
+  const { apiCharacters, isLoading, selectedGroup, setSelectedGroup } =
+    useContext(apiContext);
 
   const handleShow = (item) => {
     setShowModal(true);
@@ -23,36 +23,34 @@ const HoneycombPanel = () => {
     setShowModal(false);
   };
   const handleAdd = (item) => {
-    if(item.biography.alignment==="neutral"){
-      swal("You can't add this hero, it's neutral")
-      return
+    if (item.biography.alignment === "neutral") {
+      swal("You can't add this hero, it's neutral");
+      return;
     }
-    let goodCont=0;
-    let badCont=0;
-    let repeat=false;
-    selectedGroup.map((hero)=>{
-      if(item.id===hero.id){
-        repeat=true;
+    let goodCont = 0;
+    let badCont = 0;
+    let repeat = false;
+    selectedGroup.map((hero) => {
+      if (item.id === hero.id) {
+        repeat = true;
       }
-      if(hero.biography.alignment==="good"){
-      goodCont++;
-      }else if(hero.biography.alignment==="bad"){
+      if (hero.biography.alignment === "good") {
+        goodCont++;
+      } else if (hero.biography.alignment === "bad") {
         badCont++;
       }
-    })
-    if(repeat){
+    });
+    if (repeat) {
       swal("You already have this hero in the group ");
-    }
-    else if(item.biography.alignment==="good"&&goodCont<3){
-      setSelectedGroup([...selectedGroup,item])
-    }else if(item.biography.alignment==="good"&&goodCont>=3){
+    } else if (item.biography.alignment === "good" && goodCont < 3) {
+      setSelectedGroup([...selectedGroup, item]);
+    } else if (item.biography.alignment === "good" && goodCont >= 3) {
       swal("To many good heroes");
-    }else if(item.biography.alignment==="bad"&&badCont<3){
-      setSelectedGroup([...selectedGroup,item])
-    }else{
+    } else if (item.biography.alignment === "bad" && badCont < 3) {
+      setSelectedGroup([...selectedGroup, item]);
+    } else {
       swal("To many bad heroes");
     }
-    
   };
 
   return (
@@ -63,26 +61,24 @@ const HoneycombPanel = () => {
             <LoadingSpinner />
           </div>
         )}
-
-        {!isLoading && apiCharacters&&(
-          <ResponsiveHoneycomb
-            defaultWidth={1024}
-            size={65}
-            items={apiCharacters}
-            renderItem={(item) => (
-              <Hexagon>
-                <IndividualPanel item={item} handleShow={handleShow} handleAdd={handleAdd}/>
-              </Hexagon>
-            )}
-          />
-        )}
+        <div className="container-8col">
+          {!isLoading &&
+            apiCharacters.map((item,index) => {
+              return (
+                <IndividualPanel
+                  index={index}
+                  key={item.id}
+                  item={item}
+                  handleShow={handleShow}
+                  handleAdd={handleAdd}
+                />
+              );
+            })}
+        </div>
       </div>
 
       {showModal && (
-          <Modal
-            selectedCharacter={selectedCharacter}
-            handleHide={handleHide}
-          />
+        <Modal selectedCharacter={selectedCharacter} handleHide={handleHide} />
       )}
     </>
   );
