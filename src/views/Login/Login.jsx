@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import AnimatedFrame from "../../components/AnimatedFrame/AnimatedFrame";
+import React, { useState, useEffect } from "react";                           
 import "./Login.scss";
 
 import FormLogin from "../../components/forms/FormLogin";
@@ -19,11 +18,11 @@ const Login = () => {
       {isLoading ? (
         <LoadingScreen />
       ) : (
-        <AnimatedFrame>
+
           <div className="background-login justify-content-center align-items-center">
             <FormLogin />
           </div>
-        </AnimatedFrame>
+
       )}
     </>
   );

@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 
-import AnimatedFrame from "../AnimatedFrame/AnimatedFrame";
+
 import { FaCompressArrowsAlt } from "react-icons/fa";
 import BackupImage from "../../assets/images/backup-image.png";
 
@@ -15,7 +15,7 @@ const Modal = (props) => {
   });
 
   return (
-    <AnimatedFrame>
+
       <div className="modal-characters">
         <div className="container-cross">
           <button onClick={props.handleHide}>
@@ -40,7 +40,7 @@ const Modal = (props) => {
           </div>
         </div>
       </div>
-    </AnimatedFrame>
+
   );
 };
 

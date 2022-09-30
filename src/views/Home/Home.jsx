@@ -2,7 +2,6 @@ import React, { useEffect, useState, createContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.scss";
 
-import AnimatedFrame from "../../components/AnimatedFrame/AnimatedFrame";
 import NavBar from "../../components/NavBar/NavBar";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import HoneycombPanel from "../../components/HoneycombPanel/HoneycombPanel";
@@ -26,7 +25,7 @@ const Home = () => {
   }, []);
 
   return (
-    <AnimatedFrame>
+
       <div className="home-container">
         <NavBar />
         <apiContext.Provider
@@ -44,7 +43,6 @@ const Home = () => {
           <GroupOfHeroes />
         </apiContext.Provider>
       </div>
-    </AnimatedFrame>
   );
 };
 

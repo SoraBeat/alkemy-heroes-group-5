@@ -6,11 +6,11 @@ import Image from "../../assets/images/PageNotFound.png";
 
 const PageNotFound = () => {
   return (
-    <AnimatedFrame>
+
       <div className="container-notfound">
         <img className="notfound-img" src={Image} alt="page not found" />
       </div>
-    </AnimatedFrame>
+
   );
 };
 

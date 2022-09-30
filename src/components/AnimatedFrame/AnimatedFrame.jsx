@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+//import { motion } from "framer-motion";
 
 const animation = {
   initial: { opacity: 0, x: 0 },
@@ -7,16 +7,18 @@ const animation = {
   exit: { opacity: 0, x: -0 },
 };
 
-const AnimatedFrame = (props) => {
+const AnimatedFrame = ({children}) => {
   return (
-    <motion.div
+    <>
+    {/* <motion.div
       variants={animation}
       initial="initial"
       animate="animate"
       exit="exit"
     >
-      {props.children}
-    </motion.div>
+      {children}/*
+    </motion.div> */}
+    </>
   );
 };
 
