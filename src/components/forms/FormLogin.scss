@@ -1,11 +1,10 @@
 .form-login{
-    background-color: rgba(0, 0, 0, 0.808);
+    background-color: rgb(114, 42, 86);
     color: white;
     width: 90%;
     height: auto;
-    display: flex;
-    flex-direction: column;
-    @media screen and (min-width:768px) {
+    @media screen and (min-width:769px) {
         width: 40%;
+        height: 100%;
     }
 }
