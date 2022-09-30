@@ -1,0 +1,27 @@
+.container-honeycomb {
+  overflow-x: hidden;
+
+  
+  &::-webkit-scrollbar {
+    border-radius: 20px;
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(218, 218, 218);
+    width: 10%;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgb(104, 104, 104);
+    border-radius: 100px;
+  }
+}
+.containter-loading{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
