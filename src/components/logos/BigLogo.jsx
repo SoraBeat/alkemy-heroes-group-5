@@ -3,9 +3,9 @@ import "./BigLogo.scss"
 
 import logo from "../../assets/images/logo.png"
 
-const BigLogo = (props) => {
+const BigLogo = () => {
   return (
-    <img className='big-logo' src={logo} alt="logo" style={{height:props.height,width:props.width,margin:props.margin}}/>
+    <img className='big-logo' src={logo} alt="logo" />
   )
 }
 

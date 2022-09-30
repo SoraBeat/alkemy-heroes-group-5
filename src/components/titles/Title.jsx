@@ -1,7 +1,9 @@
-import React from "react";
+import React from 'react'
 
 const Title = (props) => {
-  return <p className="fs-4 text-white">{props.text}</p>;
-};
+  return (
+    <p className="fs-2">{props.text}</p>
+  )
+}
 
-export default Title;
+export default Title
